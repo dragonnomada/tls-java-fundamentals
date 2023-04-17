@@ -58,6 +58,7 @@ public class Hola {
 > Tecnología y entorno de desarrollo Java
 
 * `JDK (Java Development Kit)` - Es un conjunto de herramientas para compilar, ejecutar y monitorear programas de Java.
+* `JRE (Java Runtime Environment)` - Es un conjunto de herramientas para ejecutar aplicaciones de java.
 * `JSE (Java Standard Edition)` - Versión estándar para desarrollo de aplicaciones basadas en el escritorio.
 * `JEE (Java Enterprise Edition)` - Versión empresarial para aplicaciones en grandes vólumenes de recursos.
 * `JME (Java Mobile Edition)` - Versión móvil para teléfonos y dispositivos embebidos (como *Android*).
