@@ -263,6 +263,40 @@ Si deseamos leer sobre la siguiente línea debemos advertirlo con `scanner.nextL
 > Ejemplo de un programa que lee la `estatura` y el `peso` de una persona, para determinar su índice de masa corporal 
 > (el `imc`).
 
+```java
+import java.util.Scanner;
+
+public class Ejemplo308 {
+
+    public static void main(String[] args) {
+
+        double estatura, peso;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingresa tu estatura: ");
+        estatura = scanner.nextDouble();
+
+        scanner.nextLine(); // Ya no hay más datos sobre esta línea
+        // Por lo que leemos el resto de la línea
+
+        System.out.print("Ingresa tu peso: ");
+        peso = scanner.nextDouble();
+
+        scanner.nextLine(); // Ya no hay más datos sobre esta línea
+        // Por lo que leemos el resto de la línea
+
+        double imc = peso / Math.pow(estatura, 2); // peso entre estatura al cuadrado
+
+        System.out.println(
+                "El índice de masa corporal es: " + imc
+        );
+
+    }
+
+}
+```
+
 ## Ejercicios
 
 1. Crea un reporte usando concatenación para los datos de un producto (nombre, código de barras, precio, existencias, 
