@@ -45,7 +45,246 @@ la varible de instanciación.
 > se hace mediante la variable de tipo `T` dónde `T` es la clase.
 
 ## Trabajar con objetos y clases
+
+Las clases representan modelos de datos con acciones 
+determinadas, generalmente se usan para representar
+objetos del mundo real en una forma abstracta.
+
+> Ejemplo de una clase `Reloj` capaz de indicar
+> el tiempo transcurrido en segundos, minutos y horas.
+
+```java
+public class Reloj {
+
+    int segundos = 0;
+    int minutos = 0;
+    int horas = 0;
+
+    void avanzarSegundos() {
+        this.segundos = this.segundos + 1;
+        if (this.segundos == 60) {
+            this.segundos = 0;
+            this.avanzarMinutos();
+        }
+    }
+
+    void avanzarMinutos() {
+        this.minutos = this.minutos + 1;
+        if (this.minutos == 60) {
+            this.minutos = 0;
+            this.avanzarHoras();
+        }
+    }
+
+    void avanzarHoras() {
+        this.horas = this.horas + 1;
+    }
+
+    void mostrarPantalla() {
+        System.out.printf("%02d:%02d:%02d%n", this.horas, this.minutos, this.segundos);
+    }
+
+}
+```
+
+> Ejemplo de una clase `RelojTest` que tiene un método principal que crea una
+> instancia de la clase `Reloj` y avanza los segundos manualmente
+> y también mediante un cliclo `while (true)` usando un `Thread.sleep(milis)
+> para avanzar un segundo y esperar `1000 milisegundos` para otra vez avanzar.
+
+```java
+public class RelojTest {
+
+    public static void main(String[] args) {
+
+        Reloj reloj = new Reloj();
+
+        reloj.mostrarPantalla(); // 00:00:00
+
+        reloj.avanzarSegundos();
+        reloj.avanzarSegundos();
+        reloj.avanzarSegundos();
+        reloj.avanzarSegundos();
+        reloj.avanzarSegundos();
+
+        reloj.mostrarPantalla(); // 00:00:05
+
+        while (true) {
+            reloj.avanzarSegundos();
+            reloj.mostrarPantalla();
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+}
+```
+
 ## Definición de campos y métodos
+
+Los *campos* son atributos sobre la clase que determinan retener
+los valores de variables, disponibles a lo largo de la clase.
+
+    SINTAXIS: Declación de un atributo o campo
+
+    class U {
+        
+        T1 campo1 = <valor inicial>;
+        T2 campo2 = <valor inicial>;
+        T3 campo3 = <valor inicial>;
+        ...
+        Tn campoN = <valor inicial>;
+
+        // ... métodos
+
+    }
+
+> Ejemplo de una clase `Producto` con campos (atributos) 
+> para representar un producto
+
+```java
+class Producto {
+    
+    long id;
+    String nombre;
+    String descripcion;
+    double precio;
+    int existencias;
+    boolean activo;
+    
+    // ... métodos
+    
+}
+```
+
+Los métodos son acciones sobre la clase que nos permiten ejecutar
+bloques de código con acceso a los atributos, para permitirnos
+cambiar los valores de los atributos o hacer operaciones sobre ellos.
+Por ejemplo, calcular un total, asignar nuevos valores o imprimirlos
+en la pantalla.
+
+    SINTAXIS: Declaración de un método
+
+    class U {
+    
+        // ... atributos
+
+        <nivel de acceso> R1 accion1(<parámetros ...>) {
+            <bloque de sentencias con acceso a los parámetros del método
+                    y a los atributos de la clase>
+        }
+
+        <nivel de acceso> R2 accion2(<parámetros ...>) {
+            <bloque de sentencias con acceso a los parámetros del método
+                    y a los atributos de la clase>
+        }
+
+        <nivel de acceso> R3 accion3(<parámetros ...>) {
+            <bloque de sentencias con acceso a los parámetros del método
+                    y a los atributos de la clase>
+        }
+
+        ...
+
+        <nivel de acceso> Rn accionN(<parámetros ...>) {
+            <bloque de sentencias con acceso a los parámetros del método
+                    y a los atributos de la clase>
+        }
+
+    }
+
+> Ejemplo de una clase `Producto` con acciones (métodos)
+> para operar un producto
+
+```java
+class Producto {
+    
+    // ... atributos
+    
+    void actualizarPrecio(double nuevoPrecio) {
+        this.precio = nuevoPrecio;
+    }
+    
+    void actualizarDescripcion(String nuevaDescripcion) {
+        this.descipcion = nuevaDescripcion;
+    }
+    
+    void actualizarExistencias(int nuevasExistencias) {
+        if (nuevasExistencias >= 0) {
+            this.existencias = nuevasExistencias;
+        } else {
+            // TODO: Alertar un posible error
+        }
+    }
+    
+    double calcularPrecioMasIva() {
+        return this.precio * 1.16;
+    }
+    
+    String obtenerTitulo() {
+        return this.nombre + " - " + this.descripcion;
+    }
+    
+    boolean comprobarHayExistencias() {
+        return this.existencias > 0;
+    }
+    
+    double calcularValorAcumulado() {
+        return this.precio * this.existencias;
+    }
+    
+    boolean enRangoPrecio(double minPrecio, double maxPrecio) {
+        return this.precio >= minPrecio && this.precio <= maxPrecio;
+    }
+    
+}
+```
+
+### Ejercicio
+
+Diseñar una clase llamada Robot2D que contenga los siguientes atributos 
+y métodos descritos en las tablas.
+
+| Atributo | Tipo  | Descripción                |
+|----------|-------|----------------------------|
+| `x`      | `int` | Retiene la posición en `x` |
+| `y`      | `int` | Retiene la posición en `y` |
+
+| Método         | Tipo de Retorno | Parámetros | Descripción                                    |
+|----------------|-----------------|------------|------------------------------------------------|
+| `avanzarNorte` | `void`          | `()`       | Avanza el robot en `y`                         |
+| `avanzarSur`   | `void`          | `()`       | Avanza el robot en `-y`                        |
+| `avanzarEste`  | `void`          | `()`       | Avanza el robot en `x`                         |
+| `avanzarOeste` | `void`          | `()`       | Avanza el robot en `-x`                        |
+| `describir`    | `void`          | `()`       | Imprime en la pantalla la coordenada del robot |
+| `estaEnOrigen` | `boolean`       | `()`       | Devuelve si la coordenada es `(0, 0)`          |
+
+Diseña una clase llamada `Robot2DTest` que verifique los métodos.
+
+    Ejemplo:
+
+    Robot2D robot = new Robot2D();
+
+    robot.describir();
+    robot.avanzarNorte();
+    robot.describir();
+    robot.avanzarEste();
+    robot.describir();
+    robot.avanzarSur();
+    robot.describir();
+    robot.avanzarOeste();
+    robot.describir();
+    
+    if (robot.estaEnOrigen()) {
+        System.out.println("El robot está en el origen");
+    } else {
+        System.out.println("El robot no está en el origen");
+    }
+
 ## Declaración, instanciación e inicialización de objetos
 ## Trabajar con referencias de objetos
 ## Realización de más acciones con matrices
