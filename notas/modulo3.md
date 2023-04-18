@@ -10,17 +10,17 @@ usarse en alguna expresión lógica/artimética o de alguna otra forma.
 
 Los tipos de datos más comunes son:
 
-| Tipo de Dato | Valor asociado            | Ejemplo                          | Descripción                                             |
-|--------------|---------------------------|----------------------------------|---------------------------------------------------------|
-| `boolean`    | *Valor lógico*            | `boolean completado = false;`    | Almacena un valor verdadero (`true`) o  falso (`false`) | 
-| `short`      | *Número entero corto*     | `short categoria = 4;`           | Almacena un valor entero de 16 bits.                    |
-| `int`        | *Número entero*           | `int edad = 18;`                 | Almacena un valor entero de 32 bits.                    |
-| `long`       | *Número entero largo*     | `long id = 1798435633324l;`      | Almacena un valor entero de 64 bits.                    |
-| `float`      | *Número decimal simple*   | `float peso = 78.2f;`            | Almacena un valor decimal en 32 bits.                   | 
-| `double`     | *Número decimal doble*    | `double pi = 3.1415926549;`      | Almacena un valor decimal en 64 bits.                   |
-| `byte`       | *Número entero muy corto* | `byte b = 123;`                  | Almacena el valor de un byte (de -128 a 127).           |
-| `char`       | *Caracter simple*         | `char letra = 'x';`              | Almacena el valor de un caracter ASCII.                 |
-| `String`     | *Texto largo*             | `String mensaje = "Hola mundo";` | Almacena el valor de una secuencia caracteres.          |
+| Tipo de Dato  | Clase Asociada | Valor asociado            | Ejemplo                          | Descripción                                             |
+|---------------|----------------|---------------------------|----------------------------------|---------------------------------------------------------|
+| `boolean`     | `Boolean`      | *Valor lógico*            | `boolean completado = false;`    | Almacena un valor verdadero (`true`) o  falso (`false`) | 
+| `short`       | `Short`        | *Número entero corto*     | `short categoria = 4;`           | Almacena un valor entero de 16 bits.                    |
+| `int`         | `Integer`      | *Número entero*           | `int edad = 18;`                 | Almacena un valor entero de 32 bits.                    |
+| `long`        | `Long`         | *Número entero largo*     | `long id = 1798435633324l;`      | Almacena un valor entero de 64 bits.                    |
+| `float`       | `Float`        | *Número decimal simple*   | `float peso = 78.2f;`            | Almacena un valor decimal en 32 bits.                   | 
+| `double`      | `Double`       | *Número decimal doble*    | `double pi = 3.1415926549;`      | Almacena un valor decimal en 64 bits.                   |
+| `byte`        | `Byte`         | *Número entero muy corto* | `byte b = 123;`                  | Almacena el valor de un byte (de -128 a 127).           |
+| `char`        | `Character`    | *Caracter simple*         | `char letra = 'x';`              | Almacena el valor de un caracter ASCII.                 |
+| `String`      | `String`       | *Texto largo*             | `String mensaje = "Hola mundo";` | Almacena el valor de una secuencia caracteres.          |
 
 ## Introducción a variables
 
