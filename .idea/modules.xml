@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/codigos/codigos.iml" filepath="$PROJECT_DIR$/codigos/codigos.iml" />
       <module fileurl="file://$PROJECT_DIR$/ejemplos/ejemplos.iml" filepath="$PROJECT_DIR$/ejemplos/ejemplos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liga_futbol/liga_futbol.iml" filepath="$PROJECT_DIR$/liga_futbol/liga_futbol.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tls-java-fundamentals.iml" filepath="$PROJECT_DIR$/.idea/tls-java-fundamentals.iml" />
     </modules>
   </component>

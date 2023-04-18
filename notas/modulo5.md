@@ -436,10 +436,6 @@ cómo paso en argumentos o parámetros**. Esto significa, que cada que usemos
                             entonces el método tendrá una referencia más
                             al mismo objeto en cuestión.
 
-> Ejemplo: Generar el reporte de un producto en archivo
-
-
-
 ## Realización de más acciones con matrices
 
 El siguiente programa implementa una clase llamada `Matriz` la cual se
@@ -522,5 +518,5 @@ public class Ejemplo502 {
 }
 ```
 
-## Introducción a NetBeans IDE
 ## Introducción a un caso de uso de liga de fútbol
+
