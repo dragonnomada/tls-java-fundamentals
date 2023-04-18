@@ -286,7 +286,241 @@ Diseña una clase llamada `Robot2DTest` que verifique los métodos.
     }
 
 ## Declaración, instanciación e inicialización de objetos
+
+Todas las clases generan un tipo de dato llamado `TIPO CLASE`, el cual permite 
+generar variables bajo ese tipo, para retener referencias a objetos.
+
+    SINTAXIS: Declarar una variable de tipo objeto (TIPO CLASE)
+
+    U objeto;
+
+Al crear un objeto el proceso es llamado `instanciación` que se refiere
+a crear un contexto en la memoria y devolver la referencia al nuevo objeto
+creado.
+
+> Instanciación: Reservar memoria y obtener la referencia
+
+    SINTAXIS: Crear un nuevo objeto (instanciar)
+
+    objeto = new U(...);
+
+Los objetos son referencias a la memoria estructurada según la clase 
+(por ejemplo, la clase `U`) y sirven para tener una referencia a esa memoria
+durante el programa.
+
+Los objetos pueden ser tratados como variables especiales. Es decir,
+funcionan como variables con acceso a atributos y métodos.
+
+    EJEMPLO:
+
+    Scanner scanner = new Scanner(System.in);
+
+    Scanner scanner -> Declarar un objeto de tipo Scanner (TIPO CLASE)
+
+    new Scanner(...) -> Instanciar un nuevo objeto de tipo Scanner
+
+    scanner = new Scanner(...) -> Asignar el objeto como una referencia
+                                  al nuevo objeto instanciado
+
+    scanner.nextLine() -> ejecutamos un método de scanner
+
+    scanner.<atributo o método> -> acceder a un atributo o método (de los públicos)
+
+Las clases definen por defecto un método especial llamado **Constructor**
+el cual es el método que se manda a llamar cuándo la clase es instanciada.
+
+Si una clase no define ningún constructor, esta asumirá el constructor por
+defecto. Pero si la clase posee uno más constructores, podremos determinar
+qué valores iniciales tendrán los atributos de la clase.
+
+    SINTAXIS
+
+    class U {
+        
+        // ... atributos
+
+        U() {
+            // TODO: Inicializa los atributos suponiendo que mandan parámetros
+        }
+
+        U(<parámetros ...>) {
+            // TODO: Inicializa los atributos con los parámetros
+        }
+
+        // ... métodos
+
+    }
+
+> Ejemplo de la clase `Robot2D` con un constructor
+
+```java
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+class Robot2D {
+
+    int x;
+    int y;
+
+    Robot2D() {
+        this.x = 0;
+        this.y = 0;
+    }
+
+    Robot2D(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    Robot2D(File file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(file);
+        this.x = scanner.nextInt();
+        this.y = scanner.nextInt();
+    }
+
+    // ... métodos
+
+}
+```
+
+Cuando una clase tiene múltiples constructores, podemos crear instancias
+llamando a los diferentes constructores.
+
+> Ejemplo de una clase `Robot2DTest` que prueba a la clase `Robot2D`
+
+```java
+class Robot2DTest {
+
+    public static void main(String[] args) {
+        
+        Robot2D robot1 = new Robot2D(); // Constructor Robot2D()
+        
+        Robot2D robot2 = new Robot2D(400, 384); // Robot2D(int x, int y)
+        
+        Robot2D robot3 = new Robot2D(new File("C:\\...\\r2d2.txt")); // Robot2D(File file)
+        
+    }
+    
+}
+```
+
 ## Trabajar con referencias de objetos
+
+Una clase instanciada genera una referencia. Por ejemplo, cuando usamos
+`new U()` se crea una referencia a un nuevo objeto de la clase `U`.
+
+Las referencias retenidas en variables, son las que consideramos como
+los objetos. Por ejemplo, `U miObjeto = new U();` entonces, la variable
+`miObjeto` de tipo clase `U` es una referencia al nuevo objeto
+construido y se considera como él `"objeto"`.
+
+Los objetos son utilizados como variables y a veces es imperceptible
+si se trata de una variable primitiva o un objeto. Por ejemplo, si tenemos
+la variable `nombre` de tipo `String`, podemos pensar que es una variable
+primitiva, pero en realidad es un objeto de la clase `String`.
+
+**Estas variables (objetos) pueden ser transportados de un método a otro
+cómo paso en argumentos o parámetros**. Esto significa, que cada que usemos 
+`U objeto`, estaremos haciendo una referencia a una instancia de la clase `U`.
+
+    EN POCAS PALABRAS:
+
+    U objeto1 = new U(); <- objeto1 es una referencia a un nuevo objeto
+
+    U objeto2 = objeto1; <- objeto2 es una referencia al mismo objeto que objeto1
+
+    U objeto3 = objeto2; <- objeto3 es una referencia al mismo objeto que objeto1 y objeto2
+
+    <método>(objeto1); -> Pasamos la referencia del objeto1, objeto2, objeto3 al método
+                            entonces el método tendrá una referencia más
+                            al mismo objeto en cuestión.
+
+> Ejemplo: Generar el reporte de un producto en archivo
+
+
+
 ## Realización de más acciones con matrices
+
+El siguiente programa implementa una clase llamada `Matriz` la cual se
+construye de distintas formas y contiene arreglos en 2 dimensiones.
+
+> Clase `Matriz`
+
+```java
+public class Matriz {
+
+    double[][] datos;
+    int filas;
+    int columnas;
+
+    Matriz(int n, int m) {
+        datos = new double[n][m];
+
+        this.filas = n;
+        this.columnas = m;
+    }
+
+    Matriz(int n) {
+        datos = new double[n][n];
+
+        this.filas = n;
+        this.columnas = n;
+    }
+
+    void set(int i, int j, double valor) {
+        this.datos[i][j] = valor;
+    }
+
+    double get(int i, int j) {
+        return this.datos[i][j];
+    }
+
+    Matriz transponer() {
+        Matriz otraMatriz = new Matriz(this.columnas, this.filas);
+
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                otraMatriz.set(j, i, this.get(i, j));
+            }
+        }
+
+        return otraMatriz;
+    }
+
+    void mostrarPantalla() {
+        System.out.printf("--- MATRIZ %dx%d ---%n", this.filas, this.columnas);
+        for (int i = 0; i < this.filas; i++) {
+            for (int j = 0; j < this.columnas; j++) {
+                System.out.printf("%6.2f ", this.get(i, j));
+            }
+            System.out.println();
+        }
+        System.out.println("-------------------");
+    }
+
+}
+```
+
+> Clase `Ejemplo502`
+
+```java
+public class Ejemplo502 {
+
+    public static void main(String[] args) {
+
+        Matriz matriz = new Matriz(4, 6);
+
+        matriz.set(2, 4, 8);
+        matriz.set(3, 1, -1);
+        matriz.set(1, 1, 100);
+
+        matriz.mostrarPantalla();
+
+    }
+
+}
+```
+
 ## Introducción a NetBeans IDE
 ## Introducción a un caso de uso de liga de fútbol
