@@ -520,3 +520,206 @@ public class Ejemplo502 {
 
 ## Introducción a un caso de uso de liga de fútbol
 
+> Enumeración `PosicionJugador`
+
+```java
+public enum PosicionJugador {
+
+    DELANTERO_CENTRAL,
+    DELANTERO_IZQUIERDO,
+    DELANTERO_DERECHO,
+    CENTRAL,
+    CENTRAL_IZQUIERDO,
+    CENTRAL_DERECHO,
+    DEFENSA_CENTRAL,
+    DEFENSA_IZQUIERDA,
+    DEFENSA_DERECHA,
+    GUARDAMETA,
+    APOYO_DELANTERO,
+    APOYO_CENTRO,
+    APOYO_DEFENSA,
+    BANCA
+
+}
+``` 
+
+> Clase `Jugador`
+
+```java
+public class Jugador {
+
+    int numero;
+    String nombre;
+    PosicionJugador posicion;
+    boolean capitan;
+
+    public Jugador(int numero, String nombre, PosicionJugador posicion, boolean capitan) {
+        this.numero = numero;
+        this.nombre = nombre;
+        this.posicion = posicion;
+        this.capitan = capitan;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public PosicionJugador getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(PosicionJugador posicion) {
+        this.posicion = posicion;
+    }
+
+    public boolean isCapitan() {
+        return capitan;
+    }
+
+    public void setCapitan(boolean capitan) {
+        this.capitan = capitan;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "numero=" + numero +
+                ", nombre='" + nombre + '\'' +
+                ", posicion=" + posicion +
+                ", capitan=" + capitan +
+                '}';
+    }
+
+}
+```
+
+> Clase `Equipo`
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Equipo {
+
+    String nombre;
+    ArrayList<Jugador> jugadores;
+
+    public Equipo(String nombre) {
+        this.nombre = nombre;
+        this.jugadores = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipo{" +
+                "nombre='" + nombre + '\'' +
+                ", jugadores=" + Arrays.toString(jugadores.toArray()) +
+                '}';
+    }
+
+    void agregarJugador(Jugador jugador) {
+        this.jugadores.add(jugador);
+    }
+
+    void quitarJugador(int numero) {
+        Jugador jugadorAQuitar = null;
+
+        for (Jugador jugador : this.jugadores) {
+            if (jugador.numero == numero) {
+                jugadorAQuitar = jugador;
+            }
+        }
+
+        if (jugadorAQuitar != null) {
+            this.jugadores.remove(jugadorAQuitar);
+        }
+    }
+
+}
+```
+
+> Clase `Liga`
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Liga {
+
+    String nombre;
+
+    ArrayList<Equipo> equipos;
+
+    public Liga(String nombre) {
+        this.nombre = nombre;
+        this.equipos = new ArrayList<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Liga{" +
+                "nombre='" + nombre + '\'' +
+                ", equipos=" + Arrays.toString(equipos.toArray()) +
+                '}';
+    }
+
+    void inscribirEquipo(Equipo equipo) {
+        this.equipos.add(equipo);
+    }
+
+    void generarReporte() {
+
+        System.out.printf("--- LIGA %s ---%n", this.nombre);
+
+        System.out.println("EQUIPOS INSCRITOS:");
+
+        System.out.println("---------------------------------------");
+
+        for (Equipo equipo : this.equipos) {
+            System.out.printf("%s (%d)%n", equipo.getNombre(),
+                    equipo.jugadores.size());
+        }
+
+        System.out.println("---------------------------------------");
+
+        for (Equipo equipo : this.equipos) {
+
+            System.out.printf("=== %s (%d) ===%n", equipo.getNombre(),
+                    equipo.jugadores.size());
+
+            System.out.println("=======================================");
+
+            for (Jugador jugador : equipo.jugadores) {
+                System.out.printf("%d. [CAPITÁN=%B] %s (%s)%n",
+                        jugador.getNumero(), jugador.isCapitan(),
+                        jugador.getNombre(), jugador.getPosicion());
+            }
+
+            System.out.println("=======================================");
+
+        }
+
+    }
+
+}
+``` 

@@ -97,4 +97,4 @@ Instructor: [Alan Badillo Salas](mailto:alan@nomadacode.com)
 - Visión general
 - Propagación de excepciones
 - Captura y devolución de excepciones
-- Manejo de varias excepciones y errores
+- Manejo de varias excepciones y errores
