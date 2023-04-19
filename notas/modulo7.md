@@ -232,3 +232,21 @@ public class ContadorTest {
     
 }
 ```
+
+## Ejercicio
+
+Diseña una clase llamada Rectángulo que tenga
+dos atributos de tipo `double` llamados `base`
+y `altura`.
+
+Crea un método llamado `calcularArea()` que devuelva
+un `double` con el valor del área (base por altura).
+
+Crea una sobrecarga del método `calcularArea(double escala)`
+y devuelva el área del rectángulo multiplicado por la escala.
+
+Crea una sobrecarga del método `calcularArea(boolean positiva)`
+y devuelva el área positiva o sino negativa (multiplicada por -1).
+
+Crea una prueba unitaria que consuma e imprima los métodos y sus
+resultados.
