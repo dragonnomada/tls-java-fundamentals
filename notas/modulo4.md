@@ -1,4 +1,4 @@
-# Módulo 4:
+# Módulo 4
 
 ## Gestión de varios elementos
 

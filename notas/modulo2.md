@@ -1,4 +1,4 @@
-# Módulo 2:
+# Módulo 2
 
 ## Creación de una clase Java Main Class
 

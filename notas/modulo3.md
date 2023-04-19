@@ -1,4 +1,4 @@
-# Módulo 3:
+# Módulo 3
 
 ## Data in a Cart
 

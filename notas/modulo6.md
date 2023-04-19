@@ -1,4 +1,4 @@
-# Módulo 6:
+# Módulo 6
 
 ## Manipulación y formato de datos en el programa
 
