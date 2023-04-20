@@ -129,6 +129,50 @@ y un `Libro` en un `IPagable`.
 
 ## Polimorfismo en clases de fundación de JDK
 
+En java existen clases e interfaces ya definidas. Por ejemplo, interfaces para hacer que
+otras clases sean comparables y de esa forma poder extender funcionalidad.
+
 ## Uso de la interfaz List
 
+Las clases `ArrayList`, `HashList` y demás implementan la interfaz `List`.
+
 ## Introducción a las expresiones lambda
+
+Cuando una interfaz contiene un único método, se considera una *Interfaz Singular*.
+
+Estas interfaces se pueden transformar en expresiones lambda, haciendo que el código
+sea más compacto.
+
+```java
+public interface IPagable {
+    double pagar(double cantidad);
+}
+```
+
+Entonces todos métodos que reciban a la interfaz `IPagar` podrán sustituir a
+la interfaz por una expresión lambda.
+
+```java
+class TestPago {
+
+    static cobrar(IPagable pagable) {
+        double cambio = pagable.pagar(100);
+        System.out.println("Se pagaron $100 y el cambio es de $" + cambio);
+    }
+    
+    public static void main(String[] args) {
+        
+        //cobrar(new Producto(123, "Coca cola", 17.5));
+        
+        cobrar(new IPagable() {
+            public void pagar() {
+                return 17.5;
+            }
+        });
+        
+        cobrar(() -> 17.5);
+        
+    }
+    
+}
+```
