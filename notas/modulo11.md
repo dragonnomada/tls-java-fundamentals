@@ -332,3 +332,83 @@ public class ReporteProductosTest {
 
 ## Creación y ampliación de clases abstractas
 
+Existe un tipo de clases especiales llamadas clases abstractas,
+las cuales no pueden ser instanciadas y su propósito es ser derivadas
+en `subclases`.
+
+Es decir, las clases abstractas funcionan como `superclases` cascarón,
+que contienen parte de la lógica que debería ser implementada en
+una `subclase`.
+
+    SINTAXIS: Definición de una clase abstracta
+
+    public abstract class U {
+
+        // ... atributos predefinidos
+
+        // ... constructores requeridos
+
+        // ... métodos predefinidos
+
+    }
+
+A diferencia de las clases normales, las clases abstractas marcarán
+la palabra reservada `abstract` antes de la palabra reservada `class`
+indicando así que se trata de una clase que es abstracta y necesita
+forzosamente ser extendida en otra clase.
+
+> Ejemplo de una clase abstracta llamada `Figura`
+
+```java
+public abstract class Figura {
+    
+    int numeroLados;
+    
+    // El método tiene que ser implementado
+    public abstract double area();
+    
+    // El método puede o no ser reemplazado o utilizado tal cual
+    public void describir() {
+        System.out.printf("La figura tiene %d lados %n", this.numeroLados);
+        System.out.printf("El área de la figura es %.2f %n", this.area());
+    }
+    
+}
+```
+
+Las clases abstractas pueden definir dos tipos de métodos:
+
+1. `Método abstracto` - Este no contendrá ninguna implementación, en su lugar usará punto y coma (`;`)
+2. `Método tradicional` - Este contendrá una implementación por defecto que podrá usarse así o ser reemplazada
+
+Las clases abstractas permiten contener métodos tradicionales suponiendo que los otros métodos
+abstractos indicados quedaron bien implementados.
+
+Es decir, un método abstracto deberá ser reemplazado en la `subclase` que extiende de la clase
+abstracta, y un método tradicional marcado en la clase abstracta podrá consumirse tal cual o
+ser reemplazado.
+
+> Ejemplo de la clase `Triangulo` que extiende de `Figura`
+
+```java
+public class Triangulo extends Figura {
+    
+    double s1;
+    double s2;
+    double s3;
+    
+    // Estamos obligados a implementar el método abstracto: public abstract double area()
+    @Override
+    public double area() {
+        double m = (s1 + s2 + s3) / 2;
+        return Math.sqrt(m * (m - s1) * (m - s2) * (m - s3));
+    }
+    
+    // No es necesario implementar el método tradicional: public void describir()
+    
+}
+```
+
+No podemos crear una instancia de la clase `Figura`, es decir,
+`Figura figura = new Figura()` producirá error, pero `Triangulo triangulo = new Triangulo()`
+funcionará bien. Y por polimorfismo podríamos tener `Figura figura = new Triangulo()`.

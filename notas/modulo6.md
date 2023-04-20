@@ -65,11 +65,11 @@ El `StringBuilder` permite crear un texto a partir de ir agregando valores.
 
   StringBuilder builder = new StrinBuilder();
 
-  builder.appen(<valor 1>);
-  builder.appen(<valor 2>);
-  builder.appen(<valor 3>);
-  builder.appen(<valor 4>);
-  builder.appen(<valor 5>);
+  builder.append(<valor 1>);
+  builder.append(<valor 2>);
+  builder.append(<valor 3>);
+  builder.append(<valor 4>);
+  builder.append(<valor 5>);
 
 > Uso de `StringBuilder`
 
