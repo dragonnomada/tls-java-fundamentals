@@ -201,22 +201,6 @@ class Producto {
     123 más 2 cierra paréntesis
     división 4 punto y coma
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -234,22 +218,6 @@ class Producto {
 
     NOTA: Pueden ser primitivos o de alguna clase
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 ### Pregunta 302 - Selecciona la opción correcta
 
@@ -315,22 +283,6 @@ class Pregunta303 {
           es la cantidad entera que sobra
           de B contenido en A.
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -344,22 +296,6 @@ class Pregunta303 {
           y no es necesario que imprimas algo en 
           la pantalla.
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -443,22 +379,6 @@ class Pregunta403 {
 
     NOTA: Debes suponer que la lista llamada `frutas` ya existe.
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -495,22 +415,6 @@ class Pregunta403 {
     NOTA: Debes suponer que la clase `TiendaOnline`
           ya existe y tiene un constructor sin parámetros
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -524,22 +428,6 @@ class Pregunta403 {
 
     NOTA: Debes escribir el código de toda la clase
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -551,22 +439,6 @@ class Pregunta403 {
 
     NOTA: Puedes llamarle a las instancias `p1` y `p2`
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -577,22 +449,6 @@ class Pregunta403 {
 
     NOTA: Por ejemplo, si `p2 = p1;` ambos de la clase `Punto`
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -710,22 +566,6 @@ class Pregunta602 {
     NOTA: Debes usar el método de parseo correcto de la clase
           asociada a `double`
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -746,22 +586,6 @@ class Pregunta602 {
 > un valor de tipo `double` con la suma de los
 > parámetros.
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 ### Pregunta 702 - Selecciona la opción correcta
 
@@ -792,22 +616,6 @@ class Pregunta602 {
 
     NOTA: Puedes suponer valores de cero por defecto.    
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -837,22 +645,6 @@ class Pregunta901 {
 }
 ```
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -878,22 +670,6 @@ class Pregunta901 {
         ...
     }
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -903,22 +679,6 @@ class Pregunta901 {
 
     NOTA: Usa una respuesta corta
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 
@@ -947,22 +707,6 @@ class Pregunta901 {
 
 > ¿Qué es el polimorfismo?
 
-> RESPUESTA:
-
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
-    •
 
 <div style="page-break-after: always"></div>
 

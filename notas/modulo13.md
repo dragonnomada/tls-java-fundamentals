@@ -108,7 +108,7 @@ de la estructura `try` y controlamos la excepción en el bloque del `catch`.
 ```java
 class ProductoTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             // Throws Exception
             Producto producto = new Producto(new File("C:\\...\\coca-cola.txt"));
