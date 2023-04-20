@@ -33,4 +33,11 @@ public class Robot2D {
         //return this.x == 0 && this.y == 0;
     }
 
+    @Override
+    public String toString() {
+        return "Robot2D{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

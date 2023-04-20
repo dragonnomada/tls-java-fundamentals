@@ -9,7 +9,7 @@ public class Ejemplo902 {
 
     public static void main(String[] args) {
 
-        TipoPersona persona = TipoPersona.HOMBRE;
+        TipoPersona persona = TipoPersona.ROBOT;
 
         switch (persona) {
 

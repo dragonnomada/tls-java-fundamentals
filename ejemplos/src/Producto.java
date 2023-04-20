@@ -14,6 +14,14 @@ public class Producto {
         this.existencias = 0;
     }
 
+    public Producto(long id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = "SIN DESCRIPCIÓN";
+        this.precio = 0.01;
+        this.existencias = 0;
+    }
+
     public Producto(long id, String nombre, double precio, int existencias) {
         this.id = id;
         this.nombre = nombre;
@@ -76,5 +84,16 @@ public class Producto {
         } else {
             this.existencias = 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", existencias=" + existencias +
+                '}';
     }
 }
