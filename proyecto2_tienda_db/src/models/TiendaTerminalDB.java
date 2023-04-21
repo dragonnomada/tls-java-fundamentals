@@ -39,9 +39,7 @@ public class TiendaTerminalDB extends TiendaTerminal {
                 String nombre = resultSet.getString("nombre");
                 double precio = resultSet.getDouble("precio");
                 int existencias = resultSet.getInt("existencias");
-                super.agregarProducto(
-                        new Producto(id, nombre, precio, existencias)
-                );
+                super.agregarProducto(new Producto(id, nombre, precio, existencias));
             }
         } catch (Exception e) {
             System.out.println("Error al obtener los productos desde la base de datos");
@@ -67,7 +65,7 @@ public class TiendaTerminalDB extends TiendaTerminal {
             statement.setString(2, producto.getNombre());
             statement.setDouble(3, producto.getPrecio());
             statement.setInt(4, producto.getExistencias());
-            if (statement.execute()) {
+            if (statement.executeUpdate() != PreparedStatement.EXECUTE_FAILED) {
                 System.out.println("Producto agregado a la base de datos");
             } else {
                 System.out.println("No se pudo agregar el producto a la base de datos");
@@ -80,6 +78,22 @@ public class TiendaTerminalDB extends TiendaTerminal {
 
     @Override
     public Producto buscarProducto(long id) {
-        return super.buscarProducto(id);
+        try {
+            String sql = "SELECT * FROM productos WHERE id=?";
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            productos.clear();
+            while (resultSet.next()) {
+                String nombre = resultSet.getString("nombre");
+                double precio = resultSet.getDouble("precio");
+                int existencias = resultSet.getInt("existencias");
+                return new Producto(id, nombre, precio, existencias);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al obtener los productos desde la base de datos");
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }
