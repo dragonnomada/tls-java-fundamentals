@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class TiendaTerminalDB extends TiendaTerminal {
 
-    Connection connection;
+    protected Connection connection;
 
     public TiendaTerminalDB(Scanner scanner) throws Exception {
         super(scanner);

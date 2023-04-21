@@ -7,6 +7,8 @@ import models.TiendaTerminalDB;
 import javax.swing.*;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,6 +41,7 @@ public class TiendaUI extends TiendaTerminalDB {
     public String generarReporte() {
         String reporte = super.generarReporte();
         ArrayList<Producto> productos = this.productos;
+        Connection connection = this.connection;
         this.table.setModel(new TableModel() {
             @Override
             public int getRowCount() {
@@ -84,6 +87,7 @@ public class TiendaUI extends TiendaTerminalDB {
 
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
+                if (columnIndex == 1) return true;
                 return false;
             }
 
@@ -105,7 +109,20 @@ public class TiendaUI extends TiendaTerminalDB {
 
             @Override
             public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+                String sql;
+                switch (columnIndex) {
+                    case 1:
+                        try {
+                            sql = "UPDATE productos SET nombre=? WHERE id=?";
+                            PreparedStatement statement = connection.prepareStatement(sql);
+                            statement.setString(1, (String) aValue);
+                            statement.executeUpdate();
+                        } catch (Exception e) {
 
+                        }
+                        // ...
+                        break;
+                }
             }
 
             @Override
