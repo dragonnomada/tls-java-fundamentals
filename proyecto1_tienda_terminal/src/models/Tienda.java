@@ -71,7 +71,7 @@ public class Tienda {
         }
 
         for (Producto producto : this.productos) {
-            builder.append(String.format("%4d. %20s $%8.2f %3d%n",
+            builder.append(String.format("%4d. %-20s $%8.2f %3d%n",
                     producto.getId(), producto.getNombre(),
                     producto.getPrecio(), producto.getExistencias()));
         }

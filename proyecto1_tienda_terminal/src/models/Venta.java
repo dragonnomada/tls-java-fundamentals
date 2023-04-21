@@ -1,19 +1,20 @@
 package models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Venta {
 
-    long id;
-    Tienda tienda;
-    ArrayList<Producto> productos;
-    LocalDateTime fechaAbierto;
-    LocalDateTime fechaCerrado;
-    double total;
-    boolean estaPagado;
-    boolean estaCompletado;
-    boolean estaCancelado;
+    private long id;
+    private Tienda tienda;
+    private ArrayList<Producto> productos;
+    private LocalDateTime fechaAbierto;
+    private LocalDateTime fechaCerrado;
+    private double total;
+    private boolean estaPagado;
+    private boolean estaCompletado;
+    private boolean estaCancelado;
 
     public Venta(long id, Tienda tienda) {
         this.id = id;
@@ -25,6 +26,38 @@ public class Venta {
         this.estaPagado = false;
         this.estaCompletado = false;
         this.estaCancelado = false;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Tienda getTienda() {
+        return tienda;
+    }
+
+    public LocalDateTime getFechaAbierto() {
+        return fechaAbierto;
+    }
+
+    public LocalDateTime getFechaCerrado() {
+        return fechaCerrado;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public boolean isEstaPagado() {
+        return estaPagado;
+    }
+
+    public boolean isEstaCompletado() {
+        return estaCompletado;
+    }
+
+    public boolean isEstaCancelado() {
+        return estaCancelado;
     }
 
     public void registrarProducto(long productoId) {
@@ -63,9 +96,18 @@ public class Venta {
         StringBuilder builder = new StringBuilder();
 
         builder.append("==============================\n");
-        builder.append("------- TICKET %04d ------\n");
-        builder.append(String.format("CREADO: %s CERRADO: %s %n",
-                this.fechaAbierto, this.fechaCerrado));
+        builder.append(String.format("------- TICKET %04d ------%n", this.id));
+        if (this.fechaCerrado != null) {
+            builder.append(String.format("CREADO: %s CERRADO: %s %n",
+                    this.fechaAbierto.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
+                    this.fechaCerrado.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
+            ));
+        } else {
+            builder.append(String.format("CREADO: %s CERRADO: %s %n",
+                    this.fechaAbierto.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
+                    "VENTA ABIERTA"
+            ));
+        }
         builder.append("------------------------------\n");
         if (this.estaCompletado) {
             builder.append(String.format("COMPLETADO %n"));
@@ -82,11 +124,11 @@ public class Venta {
         }
         builder.append("------------------------------\n");
         for (Producto producto : this.productos) {
-            builder.append(String.format("%10s $%6.2f%n",
+            builder.append(String.format("%-10s $%6.2f%n",
                     producto.getNombre(), producto.getPrecio()));
         }
         builder.append("------------------------------\n");
-        builder.append(String.format("TOTAL: %8.2f%n", this.total));
+        builder.append(String.format("TOTAL: $%8.2f%n", this.total));
         builder.append("------------------------------\n");
         builder.append("==============================\n");
 
