@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/liga_futbol/liga_futbol.iml" filepath="$PROJECT_DIR$/liga_futbol/liga_futbol.iml" />
       <module fileurl="file://$PROJECT_DIR$/proyecto1_tienda_terminal/proyecto1_tienda_terminal.iml" filepath="$PROJECT_DIR$/proyecto1_tienda_terminal/proyecto1_tienda_terminal.iml" />
       <module fileurl="file://$PROJECT_DIR$/proyecto2_tienda_db/proyecto2_tienda_db.iml" filepath="$PROJECT_DIR$/proyecto2_tienda_db/proyecto2_tienda_db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proyecto3_tienda_ui/proyecto3_tienda_ui.iml" filepath="$PROJECT_DIR$/proyecto3_tienda_ui/proyecto3_tienda_ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/tls-java-fundamentals.iml" filepath="$PROJECT_DIR$/.idea/tls-java-fundamentals.iml" />
     </modules>
   </component>
