@@ -84,7 +84,7 @@ public class TiendaTerminalDB extends TiendaTerminal {
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             productos.clear();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 String nombre = resultSet.getString("nombre");
                 double precio = resultSet.getDouble("precio");
                 int existencias = resultSet.getInt("existencias");
