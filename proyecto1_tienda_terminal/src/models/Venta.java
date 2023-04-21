@@ -59,4 +59,38 @@ public class Venta {
         this.estaCompletado = true;
     }
 
+    public String generarTicket() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("==============================\n");
+        builder.append("------- TICKET %04d ------\n");
+        builder.append(String.format("CREADO: %s CERRADO: %s %n",
+                this.fechaAbierto, this.fechaCerrado));
+        builder.append("------------------------------\n");
+        if (this.estaCompletado) {
+            builder.append(String.format("COMPLETADO %n"));
+        } else {
+            builder.append(String.format("NO COMPLETADO %n"));
+        }
+        if (this.estaPagado) {
+            builder.append(String.format("PAGADO %n"));
+        } else {
+            builder.append(String.format("NO PAGADO %n"));
+        }
+        if (this.estaCancelado) {
+            builder.append(String.format("CANCELADO %n"));
+        }
+        builder.append("------------------------------\n");
+        for (Producto producto : this.productos) {
+            builder.append(String.format("%10s $%6.2f%n",
+                    producto.getNombre(), producto.getPrecio()));
+        }
+        builder.append("------------------------------\n");
+        builder.append(String.format("TOTAL: %8.2f%n", this.total));
+        builder.append("------------------------------\n");
+        builder.append("==============================\n");
+
+        return builder.toString();
+    }
+
 }
